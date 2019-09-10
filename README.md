@@ -1,0 +1,2 @@
+# AutomobileServiceCenter
+AutoRepair.com is a complete and independent system. This system will be designed to help Automobile Owners and Service Providers to find the suitable Service Providers to the customers according to their need and comfort. This project envisages bridging the gap between the Service Providers and the Automobile Owners. The web portal should be user-friendly, ‘quick to access’ and reliable for the above purpose. It is not a stand-alone product and depends on the availability of Eclipse IDE. It should run on Web based platform.                  
