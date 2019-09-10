@@ -1,0 +1,241 @@
+  <input type="text" placeholder="Enter Email" name="email_id" required><br>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>AutoRepair]</title> 
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+ <style>
+ul {list-style-type: none;margin: 0;padding: 0; overflow: hidden;background-color:LightCoral ;}
+li a {display: block;color: white;text-align: center; padding: 14px 16px;text-decoration: none;}
+li a:hover {background-color: #111;}
+body {font-family: Arial, Helvetica, sans-serif;background-image :url("bg1.jpg");}
+/* Full-width input fields */
+input[type=text], input[type=password] {width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;box-sizing: border-box;}
+/* Set a style for all buttons */
+button {background-color: #4CAF50;color: white;padding: 14px 20px;margin: 8px 0;border: none;cursor: pointer;width: 100%;}
+button:hover {opacity: 0.8;}
+/* Extra styles for the cancel button */
+.cancelbtn { width: auto;padding: 10px 18px;background-color: #f44336;}
+/* Center the image and position the close button */
+.imgcontainer {text-align: center;margin: 24px 0 12px 0;position: relative;}
+img.avatar {width: 40%;border-radius: 50%;}
+.container {padding: 30px;}
+span.psw {float: right;padding-top: 16px;}
+/* The Modal (background) */
+.modal {display: none; /* Hidden by default */position: fixed; /* Stay in place */z-index: 1; /* Sit on top */left: 0;top: 0;width: 100%; /* Full width */height: 100%; /* Full height */overflow: auto; /* Enable scroll if needed */background-color: rgb(0,0,0); /* Fallback color */background-color: rgba(0,0,0,0.4); /* Black w/ opacity */padding-top: 60px;}
+/* Modal Content/Box */
+.modal-content {background-color: #fefefe;margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */border: 1px solid #888;width: 80%; /* Could be more or less, depending on screen size */}
+/* The Close Button (x) */
+.close {position: absolute;right: 25px;top: 0;color: #000;font-size: 35px;font-weight: bold;}
+.close:hover,.close:focus {color: red;cursor: pointer;}
+.dropbtn {background-color: #4CAF50;color: white;padding:20px;font-size:40px;border: none;cursor: pointer;align:right;}
+.dropdown {position: relative;display:inline-block;align:right;}
+.dropdown-content {display: none;position: absolute;background-color: #f9f9f9;min-width:200px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+.dropdown-content a {color: black;padding: 12px 16px;text-decoration: none;display: block;}
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+/* Add Zoom Animation */
+.animate {-webkit-animation: animatezoom 0.6s;animation: animatezoom 0.6;}
+@-webkit-keyframes animatezoom {from {-webkit-transform: scale(0)} to {-webkit-transform: scale(1)}}
+@keyframes animatezoom {from {transform: scale(0)} to {transform: scale(1)}}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {span.psw {display: block;float: none;}.cancelbtn {width: 100%;}}
+footer {background-color: #777;padding: 10px;text-align:left;color: white;}
+li {float: left;}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.auto-abt{font-family:'Raleway',sans-serif;min-height:450px;width:100%;background-position:right;color:black;}
+.ac-about-us{padding:0; font-color:black;}
+.ac-abt-head h1{font-size:20px;font-weight:600;border-bottom:1px solid #fff;width: 15%;margin-bottom: 10px;padding-bottom: 10px;}
+.ac-abt-head p{font-size:12px;font-weight:600;line-height:20px;}
+.ac-abt-head{position:relative;top:210px;margin-top:20px;margin-bottom:20px;}
+.ac-abt-vision{width:100%;text-align:center;}
+.ac-abt-vision h1{text-align:center;font-family: 'Raleway', sans-serif;font-size:23px;font-weight:600;color:#3f3f3f;padding-bottom:35px;}
+.ac-abt-vision p{text-align:center;font-family: 'Raleway', sans-serif;font-size:12px;font-weight:600;color:#7e7c7c;line-height:20px;}
+.ac-abt-us-sub-content{width:100%;border:1px solid #e7e7e7;border-radius:8px;padding-top:30px;padding-left:28px;padding-bottom:20px;padding-right:15px;margin-bottom:40px;margin-top:40px;}
+.ac-circle-abt-us{width:124px;height:124px;border:1px solid #d94350;border-radius:50%;text-align:center;padding-top: 20px;}
+.ac-hint-abt-us{width:100%;padding-left:15px;}
+.ac-hint-abt-us h2{width:100%;font-family: 'Raleway', sans-serif;font-size:21px;color:#3f3f3f;font-weight:600;padding-bottom:20px;}
+.ac-hint-abt-us p{width:100%;font-family: 'Raleway', sans-serif;font-size:13px;color:#747474;line-height:20px;font-weight:500;}
+.ac-hint-abt-us img{margin-left:5px;}
+.ac-abt-us-content2{width:100%;padding-bottom:125px;}
+.ac-abt-list{width:100%;}
+.ac-abt-list ul{list-style-image: url("../img/ac-frred.png");width:100%;font-family: 'Raleway', sans-serif;font-size:13px;color:#747474;line-height:25px;font-weight:500;}
+.col-md-8{width:66.66666667%}
+.col-md-4{width:33.33333333%}
+@media (min-width:992px){.col-md-8,.col-md-4{float:left;}
+
+</style>
+</head>
+<body>
+<footer data-role="footer">
+ <center>
+ <img src="repair.png"  style="width:10%;"><br><br>
+</center>
+ </footer>
+<div class="navbar">
+<a class="active" href="Second1.html">About</a>
+  <a href="works.html">How It Works</a>
+
+  <a href="support.html">Support</a>
+  </div>
+ <div class="dropdown" style="float:right; >
+  <button class="dropbtn" >Account</button>
+  <div class="dropdown-content">
+ 
+  <a href="profile.html">Profile</a>
+  <a href="change.html">Change Password</a>
+  <a href="logout.html">Log Out</a>
+  </div>
+  </div>
+<div class="auto-hw-it-wrks">
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<div class="ac-hw-it-wrks-head">
+<h1 align="left"><u><b>HOW IT WORKS</b></u></h1>
+<p align="left">IN ESSENCE,A MOBILE MECHANIC SERVICE IS ALL CONVENIENCE AND EASE BUT WITH AUTOCONNECT,<br>
+WE HAVE MADE IT MUCH EASIER FOR YOU.FROM BOOKING OUR SERVICE  TO<br>
+ACTUALLY RECEIVING THE SERVICE.ENJOY A FUN RIDE WITH AUTOCONNECT !</p>
+</div>
+</div>
+<div class="col-md-4">
+</div>
+</div>
+</div>
+</div>
+
+<div class="auto-hw-it-wrk-process">
+<div class="container">
+<h1 align="center">THE PROCESS</h1>
+<p align="center">The process is fairly simple. Our aim is to connect you with certified mechanics in your local neighborhood so
+they can come to you and get your car all fixed up.Auto Connect<br> takes the measures to find the best mechanic for your service, 
+help you attain a good quote, book an appointment, make the payments, 
+and of course, get your car fixed in<br> your chosen location. Follow these simple steps to attain our services!</p>
+</div>
+</div>
+<div class="auto-hw-it-wrk-details">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="col-md-3 align-center">
+<div class="auto-wrk-circle">
+<img src="http://demo.auto-connect.in//assets/frontend/img/ac-info.png">
+</div>
+</div>
+<div class="col-md-9">
+<h1>1.&nbsp;You provide us following details:</h1>
+<p>
+a) Details of the car,year,make,model,etc.<br>
+b) What service you need.<br>
+c) Contact information.
+</p>
+</div>
+</div>
+<div class="col-md-6">
+<div class="col-md-3 align-center">
+<div class="auto-wrk-circle">
+<img src="http://demo.auto-connect.in//assets/frontend/img/ac-dollar.png">
+</div>
+</div>
+<div class="col-md-9">
+<h1>2.&nbsp;We get the quotes for you.</h1>
+<p>With a full system ready to calculate prices for you, you can rest assured that you
+will receive a proper, reasonable quote.
+Our system determines the prices based on your requirements so that all last minute hassles are avoided.</p>
+</div>
+</div>
+</div>
+<div class="row margin-t60">
+<div class="col-md-6">
+<div class="col-md-3 align-center">
+<div class="auto-wrk-circle" style="padding-top: 35px;">
+<img src="http://demo.auto-connect.in//assets/frontend/img/ac-lorry.png">
+</div>
+</div>
+<div class="col-md-9">
+<h1>3.&nbsp;Mobile service comes to you</h1>
+<p>With a full system ready to calculate prices for you, you can rest assured that you
+will receive a proper, reasonable quote.
+Our system determines the prices based on your requirements so that all last minute hassles are avoided.</p>
+</div>
+</div>
+<div class="col-md-6">
+<div class="col-md-3 align-center">
+<div class="auto-wrk-circle" style="padding-top: 40px;">
+<img src="http://demo.auto-connect.in//assets/frontend/img/ac-letter.png">
+</div>
+</div>
+<div class="col-md-9">
+<h1>4.&nbsp;We get the quotes for you.</h1>
+<p>With a full system ready to calculate prices for you, you can rest assured that you
+will receive a proper, reasonable quote.
+Our system determines the prices based on your requirements so that all last minute hassles are avoided.</p>
+</div>
+</div>
+</div>
+<div class="row margin-t60 margin-b60">
+<div class="col-md-6">
+<div class="col-md-3 align-center">
+<div class="auto-wrk-circle">
+<img src="http://demo.auto-connect.in//assets/frontend/img/ac-gurantee.png">
+</div>
+</div>
+<div class="col-md-9">
+<h1>5.&nbsp; Enjoy long-term guarantee </h1>
+<p>With a 12-month or 12,000 mile service guarantee, oToBOTS is behind you throughout, 
+so that you get to enjoy a great service.</p>
+</div>
+</div>
+<div class="col-md-6"></div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="ac-footer">
+          <div class="container">
+              <div class="column">
+              <div class="col-lg-6">
+                  <div class="ac-footer-cpywrites">
+                      <p> &copy;
+            Auto connect 2015.All rights reserved.<br>
+                      Term of Use/Privacy Policy</p>
+  <i class="fas fa-phone"> 8130176899</i>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                       <div class="ac-footer-social">
+                           <div class="ac-footer-circle">
+                               <img src="http://demo.auto-connect.in//assets/frontend/img/ac-fb-icon.png">
+                               <img src="http://demo.auto-connect.in//assets/frontend/img/ac-lnk-icon.png">
+                               <img src="http://demo.auto-connect.in//assets/frontend/img/ac-twit-icon.png">
+                            </div>
+                  </div>
+                  </div>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>

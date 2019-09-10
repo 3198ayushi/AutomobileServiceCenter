@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {height: 100%;}
+      /* Optional: Makes the sample page fill the window. */
+      html, body {height: 100%;margin: 0;padding: 0;}
+    
+.alert {
+  padding: 20px;
+  background-color:Green;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+</head>
+<body>
+<form>
+<align="top-left"><a href ="Second1.html">Back</a>
+</form>
+<h2>Confirmation</h2>
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Success!</strong> Your Service is confirmed.<br><br>
+</div>
+<br><br>
+ <form action="payment.html">
+ <h2>Enter Location Manually</h2>
+ Nearest landmark:<input type="text" placeholder="Nearest landmark"/><br><br>
+ City:<input type="text"  placeholder="City"/><br><br>
+ State:<input type="text" placeholder="State"/><br><br>
+ 
+ <h2>Direct access to Nearest Location</h2>
+    <a href="https://www.google.co.in/maps/@28.6117427,77.4587233,15z"><h4>Location</h4></a><br><br>
+    <input type="submit" value="confirm address" />
+    </form>
+ </body>
+
+</html>

@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form validation with JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section {
+  background-color: #50C5FF;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+header,main,footer {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+header {
+  padding: 48px;
+}
+@media (max-width: 440px) {
+ header {
+    padding: 48px 24px;
+  }
+}
+header > h3 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 8px;
+text-align: center;
+}
+header > h4 {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 1px;
+text-align: center;
+}
+ 
+main {
+  flex: 1;
+  padding: 0 48px;
+}
+@media (max-width: 440px) {
+  main {
+    padding: 0 24px;
+  }
+}
+ 
+footer {
+  width: 100%;
+  background-color: red;
+  padding: 16px;
+  align-self: center;
+  text-align: center;
+  margin-top: 32px;
+}
+footer a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+ 
+form {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+ 
+.label {
+  color: rgba(226, 227, 232, 0.75);
+  font-size: 16px;
+}
+ 
+small {
+  display: none;
+}
+small.errorOnce {
+  margin-top: 2px;
+}
+.tx1 {
+margin-top: 10px;
+}
+.form-item input[type="text"],
+.form-item input[type="number"],
+.form-item input[type="email"] {
+  display: block;
+  color: #E2E3E8;
+  font-size: 16px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 8px 0;
+  appearance: none;
+  outline: none;
+}
+.form-item i {
+  font-size: 12px;
+  color: red;
+}
+ 
+.box-item {
+  height: 60px;
+  margin-bottom: 16px;
+}
+ 
+.form-item-double {
+  display: flex;
+}
+.form-item-double .form-item {
+  flex: 1 1 auto;
+}
+.form-item-double .form-item:nth-child(1) {
+  padding-right: 16px;
+}
+.form-item-double .form-item:nth-child(2) {
+  padding-left: 16px;
+}
+ 
+.form-item-triple {
+  display: flex;
+  align-items: center;
+  padding-top: 6px;
+}
+.form-item-triple .radio-label {
+  flex: 1 1 auto;
+  text-align: left;
+}
+.form-item-triple .radio-label label {
+  display: inline-block;
+  vertical-align: middle;
+}
+.form-item-triple .form-item {
+  flex: 3 1 auto;
+  text-align: center;
+  margin: 0;
+}
+.form-item-triple .form-item label, .form-item-triple .form-item input[type="radio"] {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+ 
+.submit {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 8px 48px;
+  margin-top: 32px;
+  border: 2px solid #075BB4;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all ease .2s;
+}
+.submit:hover {
+  background-color: red;
+  border: 2px solid black;
+}
+ 
+.wave {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  margin-top: -600px;
+  margin-left: -400px;
+  background: red;
+  border-radius: 40%;  
+  animation: shift 20s infinite linear;
+  z-index: 0;
+}
+ 
+ 
+@keyframes shift{
+  from{
+    transform: rotate(360deg);
+  }
+}
+#wrapper {
+  width: 30%;
+  margin: 50px auto;
+  padding: 50px;
+  background: #D7FBFF;
+}
+form {
+  margin: 30px auto;
+}
+.textInput {
+  border: none;
+  height: 28px;
+  margin: 2px;
+  border: 1px solid #6B7363;
+  font-size: 1.2em;
+  padding: 5px;
+  width: 95%;
+}
+.textInput:focus {
+  outline: none;
+}
+.btn {
+  width: 98.6%;
+  border: none;
+  margin-top: 5px;
+  color: white;
+  background-color: #3b5998;
+  border-radius: 5px;
+  padding: 12px;
+}
+</style>
+<script>
+var username = document.forms['vform']['username'];
+var email = document.forms['vform']['email'];
+var password = document.forms['vform']['password'];
+var password_confirm = document.forms['vform']['password_confirm'];
+var address = document.forms['vform']['address'];
+var contact = document.forms['vform']['contact'];
+
+// SELECTING ALL ERROR DISPLAY ELEMENTS
+var name_error = document.getElementById('name_error');
+var email_error = document.getElementById('email_error');
+var password_error = document.getElementById('password_error');
+var address_error = document.getElementById('address_error');
+var contact_error = document.getElementById('contact_error');
+
+// SETTING ALL EVENT LISTENERS
+username.addEventListener('blur', nameVerify, true);
+email.addEventListener('blur', emailVerify, true);
+password.addEventListener('blur', passwordVerify, true);
+address.addEventListener('blur', addressVerify, true);
+contact.addEventListener('blur', contactVerify, true);
+
+// validation function
+function Validate() {
+  // validate username
+  if (username.value == "") {
+    username.style.border = "1px solid red";
+    document.getElementById('username_div').style.color = "red";
+    name_error.textContent = "Username is required";
+    username.focus();
+    return false;
+  }
+  // validate username
+  if (username.value.length < 3) {
+    username.style.border = "1px solid red";
+    document.getElementById('username_div').style.color = "red";
+    name_error.textContent = "Username must be at least 3 characters";
+    username.focus();
+    return false;
+  }
+  // validate email
+  if (email.value == "") {
+    email.style.border = "1px solid red";
+    document.getElementById('email_div').style.color = "red";
+    email_error.textContent = "Email is required";
+    email.focus();
+    return false;
+  }
+  // validate password
+  if (password.value == "") {
+    password.style.border = "1px solid red";
+    document.getElementById('password_div').style.color = "red";
+    password_confirm.style.border = "1px solid red";
+    password_error.textContent = "Password is required";
+    password.focus();
+    return false;
+  }
+  // check if the two passwords match
+  if (password.value != password_confirm.value) {
+    password.style.border = "1px solid red";
+    document.getElementById('pass_confirm_div').style.color = "red";
+    password_confirm.style.border = "1px solid red";
+    password_error.innerHTML = "The two passwords do not match";
+    return false;
+  }
+}
+if (address.value== "") {
+    address.style.border = "1px solid red";
+    document.getElementById('address_div').style.color = "red";
+    address_error.textContent = "Address is required";
+    address.focus();
+    return false;
+  }
+if (contact.value == "") {
+    contact.style.border = "1px solid red";
+    document.getElementById('contact_div').style.color = "red";
+    contact_error.textContent = "Contact is required";
+    contact.focus();
+    return false;
+  }
+  // validate username
+  if (contact.value.length <= 10) {
+    contact.style.border = "1px solid red";
+    document.getElementById('contact_div').style.color = "red";
+    contact_error.textContent = "contact must be at least 10 characters";
+    contact.focus();
+    return false;
+  }
+
+// event handler functions
+function nameVerify() {
+  if (username.value != "") {
+   username.style.border = "1px solid #5e6e66";
+   document.getElementById('username_div').style.color = "#5e6e66";
+   name_error.innerHTML = "";
+   return true;
+  }
+}
+function emailVerify() {
+  if (email.value != "") {
+  	email.style.border = "1px solid #5e6e66";
+  	document.getElementById('email_div').style.color = "#5e6e66";
+  	email_error.innerHTML = "";
+  	return true;
+  }
+}
+function passwordVerify() {
+  if (password.value != "") {
+  	password.style.border = "1px solid #5e6e66";
+  	document.getElementById('pass_confirm_div').style.color = "#5e6e66";
+  	document.getElementById('password_div').style.color = "#5e6e66";
+  	password_error.innerHTML = "";
+  	return true;
+  }
+  if (password.value === password_confirm.value) {
+  	password.style.border = "1px solid #5e6e66";
+  	document.getElementById('pass_confirm_div').style.color = "#5e6e66";
+  	password_error.innerHTML = "";
+  	return true;
+  }
+}
+function addressVerify() {
+	  if (address.value != "") {
+	  address.style.border = "1px solid #5e6e66";
+	   document.getElementById('address_div').style.color = "#5e6e66";
+	   address_error.innerHTML = "";
+	   return true;
+	  }
+	}
+	
+function contactVerify() {
+	  if (contact.value != "") {
+	   contact.style.border = "1px solid #5e6e66";
+	   document.getElementById('contact_div').style.color = "#5e6e66";
+	   contact_error.innerHTML = "";
+	   return true;
+	  }
+	}
+</script>
+<body>
+<div id="wrapper">
+   <form method="POST" action="process.html" onsubmit="return Validate()" name="vform" >
+   	<div id="username_div">
+   	  <label>Username</label> <br>
+   	  <input type="text" name="username" class="textInput">
+   	  <div id="name_error"></div>
+   	</div>
+   	<div id="email_div">
+   	  <label>Email</label> <br>
+   	  <input type="email" name="email" class="textInput">
+   	  <div id="email_error"></div>
+   	</div>
+   	<div id="password_div">
+   	  <label>Password</label> <br>
+   	  <input type="password" name="password" class="textInput">
+   	</div>
+   	<div id="pass_confirm_div">
+   	   <label>Password confirm</label> <br>
+   	   <input type="password" name="password_confirm" class="textInput">
+   	   <div id="password_error"></div>
+   	</div>
+   	<div id="address_div">
+   	 <label >Enter Address</label><br>
+      <input type="text" name="Address" class="textInput" >
+      <div id="address_error"></div>
+      </div>
+      <div id="contact_div">
+      <label>Enter Contact</label><br>
+	   <input type ="text" name="contact" class="textInput">
+	<div id="contact_error"></div>
+	</div>
+	<div>
+   	<input type="checkbox" id="accept-terms" data-parsley-mincheck="1" required="">
+      <label for="accept-terms">I agree to the <a href="terms.html">Terms</a></label><br><br>
+    <input type="submit" name="register" value="Register" class="btn">
+   	</div>
+   	</form>
+   	 
+</div>
+</body>
+</html>

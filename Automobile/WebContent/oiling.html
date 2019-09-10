@@ -1,0 +1,165 @@
+Location:oiling.html
+
+
+<!DOCTYPE html>
+<meta charset="ISO-8859-1">
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image :url("bg1.jpg");
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+.dropbtn {background-color: #4CAF50;color: white;padding: 10px;font-size: 10px;border: none;cursor: pointer;align:right;}
+.dropdown {position: relative;display: inline-block;align:right;}
+.dropdown-content {display: none;position: absolute;background-color: #f9f9f9;min-width: 160px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+.dropdown-content a {color: black;padding: 12px 16px;text-decoration: none;display: block;}
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+footer {background-color: #777;padding: 10px;text-align:left;color: white;}
+li {float: left;}
+ ul {list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color:black;}
+li a {display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;}
+li a:hover {background-color: #111;}
+
+</style>
+</head>
+<body>
+<footer data-role="footer">
+ <center>
+ <img src="repair.png"  style="width:10%;"><br><br>
+</center>
+ </footer>
+<ul>
+  <li><a href="second.html">Back</a></li>
+  <li><a class="active" href="process.html">About Us</a></li>
+  <li><a href="works.html">How It Works</a></li>
+  <li><a href="process.html">For User</a></li>
+  <li><a href="support.html">Support</a></li>
+  <li><a href="price.html">Next</a></li>
+</ul>
+  <div class="dropdown" style="float:right; >
+  <button class="dropbtn" >Account</button>
+  <div class="dropdown-content">
+  <a href="registration.html">Register</a>
+  <a href="login.html">Login</a>
+  <a href="profile.html">Profile</a>
+  <a href="change.html">Change Password</a>
+  <a href="logout.html">Log Out</a>
+  </div>
+  </div>
+<h2> CAR SERVICES</h2>
+<section>
+  <nav>
+    <ul>
+      <li><a href="oiling.html">Oiling</a></li>
+      <li><a href="detailing.html">Interior Detailing</a></li>
+      <li><a href="denting.html">Denting</a></li>
+      <li><a href="bikeservices.html">Bike Services</a></li>
+      <li><a href="breakdown.html">Breakdown Assistance</a></li>
+      <li><a href="carspa.html">Complete Car Spa</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>
+    OIL CHANGE PACKAGING</h1>
+    <p>1.Engine oil and oil filter change</p>
+    <p>2.Engine Maintenance</p>
+    <p>3.Brake Checkup</p>
+    <p>4.Complete Car Cleaning</p>
+    <p>Our multi-point oil change service will ensure that your car continues to operate efficiently with clean oil and proper fluid levels using Kendall Premium Oil products including synthetic blend, high-mileage and full synthetic oils.</p><br>
+									
+  </article>
+
+</section>
+
+<footer>
+<div class="ac-footer">
+          <div class="container">
+              <div class="column">
+              <div class="col-lg-6">
+                  <div class="ac-footer-cpywrites">
+                      <p> &copy;
+            Auto connect 2015.All rights reserved.<br>
+                      Term of Use/Privacy Policy</p>
+                       <i class="fas fa-phone"> 8130176899</i>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                       <div class="ac-footer-social">
+                           <div class="ac-footer-circle">
+                               <img src="http://demo.auto-connect.in//assets/frontend/img/ac-fb-icon.png">
+                               <img src="http://demo.auto-connect.in//assets/frontend/img/ac-lnk-icon.png">
+                               <img src="http://demo.auto-connect.in//assets/frontend/img/ac-twit-icon.png">
+                            </div>
+                  </div>
+                  </div>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
+
